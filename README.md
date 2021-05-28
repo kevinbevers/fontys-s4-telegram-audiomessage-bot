@@ -23,9 +23,11 @@ For our first prototype(this repo) it will not be possible for users to customiz
 This telegram audiomessage bot uses the following technologies:
 * [node.js] - evented I/O for the backend
 * [telegram-bot-api] - evented I/O for the backend
+* [telebot] - framework for telegram bot api written for NodeJS
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
    [node.js]: <http://nodejs.org>
    [telegram-bot-api]: <https://core.telegram.org>
+   [telebot]: <https://github.com/mullwar/telebot>
