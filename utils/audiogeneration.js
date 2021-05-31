@@ -20,7 +20,7 @@ const fs = require('fs');
     },
     {
       filter: 'volume',
-      options: ['0.2'],
+      options: ['0.15'],
       inputs: "1:a",
       outputs: "[s2]"
     },
