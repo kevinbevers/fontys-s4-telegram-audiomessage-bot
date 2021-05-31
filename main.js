@@ -1,18 +1,25 @@
-var apiFunction = require('./Azure_API.js');
+//var apiFunction = require();
+import { synthesizeSpeech } from './Azure_API.js'
 
 //express for api
-const express = require('express');
+import express from 'express'
+//const express = require('express');
 const app = express();
 app.use(express.json());
 //env variables
-const dotenv = require('dotenv');
+import dotenv from 'dotenv'
+//const dotenv = require('dotenv');
 dotenv.config(); //add post middleware
 //schedule job
-const schedule = require('node-schedule');
+import schedule from 'node-schedule'
+//const schedule = require('node-schedule');
 //make api calls with axios
-const axios = require('axios');
+import axios from 'axios'
+//const axios = require('axios');
 //TelegramBot
-const TeleBot = require('telebot');
+import TeleBot from 'telebot'
+//const TeleBot = require('telebot');
+//import {generateCoolBoardRadioEffect} from './utils/audiogeneration.js'
 const audiogeneration = require('./utils/audiogeneration');
 
 app.get('/get/:variable', async function (req, res) {
@@ -53,7 +60,7 @@ app.get('/get/:variable', async function (req, res) {
 
   app.get('/voicefile', async function (req, res) {
     
-    apiFunction;
+    synthesizeSpeech("Getting the response as an in-memory stream. this is a test");
     
     res.send(`Voice is made and stored in a file`);
   });

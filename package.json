@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This repo contains the code for our telegram audio message bot that is part of our client project that for Handpicked agencies. This client project is assigned to us for our Semester 4 Creative Technology course.",
   "main": "main.js",
+  "type": "module",
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
