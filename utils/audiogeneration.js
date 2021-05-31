@@ -56,4 +56,4 @@ import fs from 'fs';
   };
 
 // exports the variables and functions above so that other modules can use them
-export default generateCoolBoardRadioEffect;
+export default { generateCoolBoardRadioEffect };
