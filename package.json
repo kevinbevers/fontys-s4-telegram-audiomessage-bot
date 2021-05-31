@@ -1,0 +1,29 @@
+{
+  "name": "telegram-audiomessage-bot",
+  "version": "1.0.0",
+  "description": "This repo contains the code for our telegram audio message bot that is part of our client project that for Handpicked agencies. This client project is assigned to us for our Semester 4 Creative Technology course.",
+  "main": "main.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-schedule": "^2.0.0",
+    "nodemon": "^2.0.7",
+    "telebot": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinbevers/fontys-s4-telegram-audiomessage-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinbevers/fontys-s4-telegram-audiomessage-bot/issues"
+  },
+  "homepage": "https://github.com/kevinbevers/fontys-s4-telegram-audiomessage-bot#readme"
+}
