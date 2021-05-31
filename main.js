@@ -63,7 +63,7 @@ app.get('/get/:variable', async function (req, res) {
     //create audio file with voice and engine sound under.
     await command
     .addInput(inputFilePath)
-    .addInput('./audio/utility/f1enginesound.mp3').seekInput(35)
+    .addInput('./audio/utility/RB16BengineOnboard.mp3').seekInput(40)
     //'amix=inputs=2:duration=first:dropout_transition=0'
     .complexFilter([{
       filter: 'volume',
