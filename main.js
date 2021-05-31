@@ -32,7 +32,7 @@ app.get('/get/:variable', async function (req, res) {
 
   app.get('/mixaudio', async function (req, res) {
 
-    await audiogeneration.generateCoolBoardRadioEffect('./audio/stock/CroftyDefaultText.flac');
+    await audiogeneration.generateCoolBoardRadioEffectWithDistortion('./audio/stock/apivoice.mp3');
 
     res.send(`Audio mixed with ffmpeg`);
   });
