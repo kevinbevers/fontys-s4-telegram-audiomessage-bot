@@ -15,13 +15,13 @@ const fs = require('fs');
     .complexFilter([{
       filter: 'volume',
       options: ['1.0'],
-      inputs: "0:a",
+      inputs: "0:0",
       outputs: "[s1]"
     },
     {
       filter: 'volume',
       options: ['0.15'],
-      inputs: "1:a",
+      inputs: "1:0",
       outputs: "[s2]"
     },
     {
