@@ -1,4 +1,5 @@
-const mymoduleSpecifier = './Azure_API.js';
+//const mymoduleSpecifier = './Azure_API.js';
+var apiFunction = require('./Azure_API.js');
 
 //express for api
 const express = require('express');
@@ -43,9 +44,10 @@ app.get('/get/:variable', async function (req, res) {
 
   app.get('/voicefile', async function (req, res) {
     
-    import(mymoduleSpecifier).then((module) => {
-      module.synthesizeSpeech();
-    });
+    apiFunction;
+    //import(mymoduleSpecifier).then((module) => {
+    //  module.synthesizeSpeech();
+//});
 
     res.send(`Voice is made and stored in a file`);
   });
