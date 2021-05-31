@@ -1,25 +1,17 @@
-//var apiFunction = require();
 import { synthesizeSpeech } from './Azure_API.js'
-
 //express for api
 import express from 'express'
-//const express = require('express');
 const app = express();
 app.use(express.json());
 //env variables
 import dotenv from 'dotenv'
-//const dotenv = require('dotenv');
 dotenv.config(); //add post middleware
 //schedule job
 import schedule from 'node-schedule'
-//const schedule = require('node-schedule');
 //make api calls with axios
 import axios from 'axios'
-//const axios = require('axios');
 //TelegramBot
 import TeleBot from 'telebot'
-//const TeleBot = require('telebot');
-//import {generateCoolBoardRadioEffect} from './utils/audiogeneration.js'
 import audiogeneration from './utils/audiogeneration.js';
 
 app.get('/get/:variable', async function (req, res) {
