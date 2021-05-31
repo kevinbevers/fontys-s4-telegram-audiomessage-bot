@@ -19,8 +19,8 @@ import axios from 'axios'
 //TelegramBot
 import TeleBot from 'telebot'
 //const TeleBot = require('telebot');
-import {generateCoolBoardRadioEffect} from './utils/audiogeneration.js'
-//const audiogeneration = require('./utils/audiogeneration');
+//import {generateCoolBoardRadioEffect} from './utils/audiogeneration.js'
+const audiogeneration = require('./utils/audiogeneration');
 
 app.get('/get/:variable', async function (req, res) {
 
@@ -40,7 +40,7 @@ app.get('/get/:variable', async function (req, res) {
 
   app.get('/mixaudio', async function (req, res) {
 
-    await generateCoolBoardRadioEffect('./audio/stock/CroftyDefaultText.flac');
+    await audiogeneration.generateCoolBoardRadioEffect('./audio/stock/CroftyDefaultText.flac');
 
     res.send(`Audio mixed with ffmpeg`);
   });
