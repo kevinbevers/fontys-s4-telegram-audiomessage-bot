@@ -1,17 +1,18 @@
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
+require('dotenv').config()
 
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription(SubscriptionKey, ServiceRegion);
-    const audioConfig = AudioConfig.fromAudioFileOutput(PathApiVoice);
+    const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SubscriptionKey, process.env.ServiceRegion);
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput(process.env.PathApiVoice);
 
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
         "A simple test to write to a file.",
         result => {
             synthesizer.close();
             if (result) {
                 // return result as stream
-                return fs.createReadStream(PathApiVoice);
+                return fs.createReadStream(process.env.PathApiVoice);
             }
         },
         error => {
@@ -19,5 +20,6 @@ function synthesizeSpeech() {
             synthesizer.close();
         });
 }
-//export{synthesizeSpeech};
+module.exports = synthesizeSpeech();
+
 
