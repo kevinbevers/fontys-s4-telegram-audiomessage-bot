@@ -1,7 +1,7 @@
 //ffmpeg for image, audio and movie manipulation.
-const FfmpegCommand = require('fluent-ffmpeg');
+import FfmpegCommand from 'fluent-ffmpeg';
 //file system
-const fs = require('fs');
+import fs from 'fs';
 
 
   const generateCoolBoardRadioEffect = (inputFilePath) => {
@@ -56,4 +56,4 @@ const fs = require('fs');
   };
 
 // exports the variables and functions above so that other modules can use them
-module.exports.generateCoolBoardRadioEffect = generateCoolBoardRadioEffect;
+export default generateCoolBoardRadioEffect;

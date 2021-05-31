@@ -20,7 +20,7 @@ import axios from 'axios'
 import TeleBot from 'telebot'
 //const TeleBot = require('telebot');
 //import {generateCoolBoardRadioEffect} from './utils/audiogeneration.js'
-const audiogeneration = require('./utils/audiogeneration');
+import audiogeneration from './utils/audiogeneration.js';
 
 app.get('/get/:variable', async function (req, res) {
 
