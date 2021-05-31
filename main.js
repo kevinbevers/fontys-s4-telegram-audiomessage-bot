@@ -1,3 +1,5 @@
+const mymoduleSpecifier = './Azure_API.js';
+
 //express for api
 const express = require('express');
 const app = express();
@@ -26,6 +28,16 @@ app.get('/get/:variable', async function (req, res) {
     //bot.sendVoice(process.env.TelegramChannelID, "./audio/VettelAICongrats.mp3", {caption: "Sebastian Vettel congratulates Max Verstappen on his Monaco Grand Prix Victory."});
 
     res.send(`Voice is send in the Telegram channel`);
+  });
+
+  
+  app.get('/voicefile', async function (req, res) {
+    
+    import(mymoduleSpecifier).then((module) => {
+      module.synthesizeSpeech();
+});
+
+    res.send(`Voice is made and stored in a file`);
   });
 
 
