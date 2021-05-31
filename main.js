@@ -1,3 +1,5 @@
+const mymoduleSpecifier = './Azure_API.js';
+
 //express for api
 const express = require('express');
 const app = express();
@@ -37,6 +39,15 @@ app.get('/get/:variable', async function (req, res) {
     await generateCoolBoardRadioEffect('./audio/stock/HelloAndWelcome.flac');
 
     res.send(`Audio mixed with ffmpeg`);
+  });
+
+  app.get('/voicefile', async function (req, res) {
+    
+    import(mymoduleSpecifier).then((module) => {
+      module.synthesizeSpeech();
+    });
+
+    res.send(`Voice is made and stored in a file`);
   });
 
 
