@@ -13,7 +13,7 @@ const schedule = require('node-schedule');
 const axios = require('axios');
 //TelegramBot
 const TeleBot = require('telebot');
-const bot = new TeleBot(process.env?.TelegramBotToken);
+const bot = new TeleBot(process.env?.TelegramBotToken || "");
 const audiogeneration = require('./utils/audiogeneration');
 
 app.get('/get/:variable', async function (req, res) {
@@ -26,7 +26,7 @@ app.get('/get/:variable', async function (req, res) {
   app.get('/sendvoice', async function (req, res) {
 
     //to get the channelID https://gist.github.com/mraaroncruz/e76d19f7d61d59419002db54030ebe35
-    bot.sendVoice(process.env?.TelegramChannelID, "./audio/VettelAICongrats.mp3", {caption: "Sebastian Vettel congratulates Max Verstappen on his Monaco Grand Prix Victory."});
+    bot.sendVoice(process.env?.TelegramChannelID || "", "./audio/VettelAICongrats.mp3", {caption: "Sebastian Vettel congratulates Max Verstappen on his Monaco Grand Prix Victory."});
 
     res.send(`Voice is send in the Telegram channel`);
   });
