@@ -22,7 +22,7 @@ For our first prototype(this repo) it will not be possible for users to customiz
 ### Technology used
 This telegram audiomessage bot uses the following technologies:
 * [node.js] - evented I/O for the backend
-* [telegram-bot-api] - evented I/O for the backend
+* [telegram-bot-api] - official telegram bot api
 * [telebot] - framework for telegram bot api written for NodeJS
 
 
