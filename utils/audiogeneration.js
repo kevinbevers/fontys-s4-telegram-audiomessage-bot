@@ -20,7 +20,7 @@ const fs = require('fs');
     },
     {
       filter: 'volume',
-      options: ['0.3'],
+      options: ['0.2'],
       inputs: "1:a",
       outputs: "[s2]"
     },
@@ -49,7 +49,7 @@ const fs = require('fs');
           //file removed
         })
       })
-      .mergeToFile('./audio/result.mp3', './audio/temp');
+      .mergeToFile('./audio/speechWithCoolBoardRadioEffect.mp3', './audio/temp');
 
     })
     .run();
