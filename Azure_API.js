@@ -26,4 +26,32 @@ export  function synthesizeSpeech(textToVoice) {
     catch {};
 }
 
+// function xmlToString(filePath) {
+//     const xml = readFileSync(filePath, "utf8");
+//     return xml;
+// }
+// export  function synthesizeSpeech(textToVoice) {
+//     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+//     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
+
+//     const ssml = xmlToString("ssml.xml");
+//     synthesizer.speakSsmlAsync(
+//         ssml,
+//         result => {
+//             if (result.errorDetails) {
+//                 console.error(result.errorDetails);
+//             } else {
+//                 console.log(JSON.stringify(result));
+//             }
+
+//             synthesizer.close();
+//         },
+//         error => {
+//             console.log(error);
+//             synthesizer.close();
+//         });
+// }
+
+
+
 
