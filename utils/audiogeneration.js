@@ -4,11 +4,12 @@ const FfmpegCommand = require('fluent-ffmpeg');
 const fs = require('fs');
 
 
-  const generateCoolBoardRadioEffect = async(inputFilePath) => {
+  const generateCoolBoardRadioEffect = (inputFilePath) => {
+   return new Promise(function(resolve, reject) {
     const command = new FfmpegCommand();
     const command2 = new FfmpegCommand();
     //create audio file with voice and engine sound under.
-    await command
+    command
     .addInput(inputFilePath)
     .addInput('./audio/utility/RB16BengineOnboard.mp3').seekInput(40)
     //'amix=inputs=2:duration=first:dropout_transition=0'
@@ -20,7 +21,7 @@ const fs = require('fs');
     },
     {
       filter: 'volume',
-      options: ['0.15'],
+      options: ['0.1'],
       inputs: "1:0",
       outputs: "[s2]"
     },
@@ -28,8 +29,8 @@ const fs = require('fs');
       filter: 'amix',
       inputs: ["[s1]","[s2]"],
       options: ['duration=first','dropout_transition=0']
-    }]).output('./audio/temp/overlayed.mp3').on('error', function(err) {
-      console.log(err);
+    }]).save('./audio/temp/overlayed.mp3').on('error', function(err) {
+      reject(new Error(err?.message || "Whoops!"));
     })
     .on('end', function() {
       console.log('Amixed audio files together.');
@@ -43,16 +44,15 @@ const fs = require('fs');
 
         fs.unlink('./audio/temp/overlayed.mp3', (err) => {
           if (err) {
-            console.error(err)
-            return
+            reject(new Error(err?.message || "Whoops!"));
           } 
           //file removed
+          resolve();
         })
       })
       .mergeToFile('./audio/speechWithCoolBoardRadioEffect.mp3', './audio/temp');
-
-    })
-    .run();
+    });
+    });
   };
 
 // exports the variables and functions above so that other modules can use them
