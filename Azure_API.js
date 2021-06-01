@@ -42,6 +42,7 @@ function synthesizeSpeechXML(textToVoice) {
     synthesizer.speakSsmlAsync(
         ssml,
         result => {
+            console.log(ssml);
             if (result.errorDetails) {
                 console.error(result.errorDetails);
             } else {
