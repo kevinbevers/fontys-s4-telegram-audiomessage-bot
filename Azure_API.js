@@ -1,8 +1,9 @@
-import { SpeechConfig, AudioConfig, SpeechSynthesizer } from 'microsoft-cognitiveservices-speech-sdk'
-import { Readable } from 'stream'
+import { SpeechConfig, AudioConfig, SpeechSynthesizer } from 'microsoft-cognitiveservices-speech-sdk';
+import { Readable } from 'stream';
+import {readFileSync} from 'fs';
 
 
-export  function synthesizeSpeech(textToVoice) {
+function synthesizeSpeech(textToVoice) {
     try {
     const speechConfig = SpeechConfig.fromSubscription(process.env?.SubscriptionKey, process.env?.ServiceRegion);
     const audioConfig = AudioConfig.fromAudioFileOutput(process.env?.PathApiVoice || './audio/stock/apivoice.mp3');
@@ -26,32 +27,39 @@ export  function synthesizeSpeech(textToVoice) {
     catch {};
 }
 
-// function xmlToString(filePath) {
-//     const xml = readFileSync(filePath, "utf8");
-//     return xml;
-// }
-// export  function synthesizeSpeech(textToVoice) {
-//     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-//     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
+function xmlToString(filePath) {
+    const xml = readFileSync(filePath, "utf8");
+    return xml;
+}
 
-//     const ssml = xmlToString("ssml.xml");
-//     synthesizer.speakSsmlAsync(
-//         ssml,
-//         result => {
-//             if (result.errorDetails) {
-//                 console.error(result.errorDetails);
-//             } else {
-//                 console.log(JSON.stringify(result));
-//             }
+function synthesizeSpeechXML(textToVoice) {
+    const speechConfig = SpeechConfig.fromSubscription(process.env?.SubscriptionKey, process.env?.ServiceRegion);
+    const audioConfig = AudioConfig.fromAudioFileOutput(process.env?.PathApiVoice || './audio/stock/apivoice.mp3');
 
-//             synthesizer.close();
-//         },
-//         error => {
-//             console.log(error);
-//             synthesizer.close();
-//         });
-// }
+    const ssml = xmlToString("ssml.xml");
+    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    
+    synthesizer.speakSsmlAsync(
+        ssml,
+        result => {
+            if (result.errorDetails) {
+                console.error(result.errorDetails);
+            } else {
+                console.log(JSON.stringify(result));
+            }
+            const { audioData } = result;
+
+            synthesizer.close();
+            const stream = Readable.from(audioData.toString());
+
+            return stream;
+        },
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
+}
 
 
-
+export {synthesizeSpeech, synthesizeSpeechXML };
 

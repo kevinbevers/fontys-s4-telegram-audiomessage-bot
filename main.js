@@ -1,4 +1,4 @@
-import { synthesizeSpeech } from './Azure_API.js'
+import { synthesizeSpeech, synthesizeSpeechXML } from './Azure_API.js'
 //express for api
 import express from 'express'
 const app = express();
