@@ -36,7 +36,8 @@ function synthesizeSpeechXML(textToVoice) {
     const speechConfig = SpeechConfig.fromSubscription(process.env?.SubscriptionKey, process.env?.ServiceRegion);
     const audioConfig = AudioConfig.fromAudioFileOutput(process.env?.PathApiVoiceXml || './audio/stock/apivoice.mp3');
 
-    const ssml = xmlToString("ssml.xml");
+    const ssml='<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">    <voice name="en-PH-JamesNeural">    '+textToVoice+'    </voice>  </speak>';
+    //const ssml = xmlToString("ssml.xml");
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     
     synthesizer.speakSsmlAsync(
