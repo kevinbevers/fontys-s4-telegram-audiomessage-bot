@@ -53,7 +53,7 @@ app.get('/get/:variable', async function (req, res) {
   app.get('/voicefile', async function (req, res) {
     const text="This is for all the kids out there that dream of the impossible!";
     synthesizeSpeechXML(text);
-    synthesizeSpeech("This is for all the kids out there that dream of the impossible!");
+    //synthesizeSpeech("This is for all the kids out there that dream of the impossible!");
     
     res.send(`Voice is made and stored in a file`);
   });
