@@ -11,7 +11,7 @@ import fs from 'fs';
     //create audio file with voice and engine sound under.
     command
     .addInput(inputFilePath)
-    .addInput('./audio/utility/RB16BengineOnboard.mp3').seekInput(40)
+    .addInput('./audio/utility/RB16BengineOnboard.mp3').seekInput(52)
     //'amix=inputs=2:duration=first:dropout_transition=0'
     .complexFilter([{
       filter: 'volume',
@@ -93,7 +93,7 @@ import fs from 'fs';
      .on('end', function() {
         command2
         .addInput('./audio/temp/distort.mp3')
-        .addInput('./audio/utility/RB16BengineOnboard.mp3').seekInput(40)
+        .addInput('./audio/utility/RB16BengineOnboard.mp3').seekInput(52)
         //'amix=inputs=2:duration=first:dropout_transition=0'
         .complexFilter([{
           filter: 'volume',
@@ -103,7 +103,7 @@ import fs from 'fs';
         },
         {
           filter: 'volume',
-          options: ['0.15'],
+          options: ['0.1'],
           inputs: "1:0",
           outputs: "[s2]"
         },

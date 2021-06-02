@@ -32,7 +32,7 @@ app.get('/get/:variable', async function (req, res) {
 
   app.get('/mixaudio', async function (req, res) {
 
-    await audiogeneration.generateCoolBoardRadioEffectWithDistortion('./audio/stock/apivoice.mp3');
+    await audiogeneration.generateCoolBoardRadioEffectWithDistortion('./audio/stock/apivoiceXML.mp3');
 
     res.send(`Audio mixed with ffmpeg`);
   });
@@ -51,9 +51,9 @@ app.get('/get/:variable', async function (req, res) {
   });
 
   app.get('/voicefile', async function (req, res) {
-    const text="This is for all the kids out there that dream of the impossible!";
-    synthesizeSpeechXML(text);
-    synthesizeSpeech("This is for all the kids out there that dream of the impossible!");
+    const text=" Hey valterri It is James here, let Lewis pass I repeat please let lewis pass.";
+    await synthesizeSpeechXML(text);
+    await synthesizeSpeech("This is for all the kids out there that dream of the impossible!");
     
     res.send(`Voice is made and stored in a file`);
   });
