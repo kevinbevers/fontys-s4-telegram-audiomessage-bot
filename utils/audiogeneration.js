@@ -75,7 +75,13 @@ import fs from 'fs';
       filter: 'lowpass',
       options: ['f=1000'],
       inputs: "s",
+      outputs: "s2"
     },
+     {
+       filter: 'volume',
+       options: ['20.0'],
+       inputs: "s2",
+     }
     //  {
     //    filter: 'volume',
     //    options: ['0.15'],
@@ -97,7 +103,7 @@ import fs from 'fs';
         //'amix=inputs=2:duration=first:dropout_transition=0'
         .complexFilter([{
           filter: 'volume',
-          options: ['6.0'],
+          options: ['2.0'],
           inputs: "0:0",
           outputs: "[s1]"
         },
