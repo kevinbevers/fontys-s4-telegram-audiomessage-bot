@@ -1,7 +1,7 @@
 $(function (){
   var txt = document.getElementById('txt');
 
-  alert(txt);}
+  console.log(txt);
   
   run();
-};
+});

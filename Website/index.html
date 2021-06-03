@@ -7,17 +7,15 @@
 
 <h1>Text to speech</h1>
 <p>Make auido sample.</p>
-<div> 
-    <label for="w3review">text to convert to voice</label>
 
-    <textarea id="txt" name="w3review" rows="4" cols="50">
-        Text you want to convert
-    </textarea>
+<form action="http://localhost:4001/voicefile" method="get" target="_blank">
+  <label for="fname">Text you want to convert</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <input type="submit" value="Submit">
+</form>
 
-    <button type="button">Click Me!</button>
-
-</div>
-<script type="text/javascript" src="script.js"></script>
+<p>Click on the submit button, and the input will be sent to a page on the server called "action_page.php".</p>
+<!--<script type="text/javascript" src="script.js"></script>-->
 </body>
 </html>
 
