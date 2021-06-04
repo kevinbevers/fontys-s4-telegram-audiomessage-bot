@@ -52,7 +52,8 @@ app.get('/get/:variable', async function (req, res) {
 
   app.get('/voicefile', async function (req, res) {
     // get text from query
-    const textFromQuery = req.query.tts;
+    const textFromQuery = req.query.tss.toString();
+    console.log(textFromQuery);
     // const text=`Hey Valterri, it is James.Fuck you`;
 
     await synthesizeSpeechXML(textFromQuery);
