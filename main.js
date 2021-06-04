@@ -61,6 +61,19 @@ app.get('/get/:variable', async function (req, res) {
     res.send(`Voice is made and stored in a file`);
   });
 
+  function searchURL() {
+    window.location = "http://localhost:4001/websitedata/" + input.value;
+  }
+  app.get('/websitedata', async function (req, res) {
+      var input = document.getElementById("fname");
+
+    
+    await synthesizeSpeechXML(text);
+    //await synthesizeSpeech("This is for all the kids out there that dream of the impossible!");
+    
+    res.send(`Voice is made and stored in a file`);
+  });
+
 
   //App listen
   const port = process.env?.PORT || 4001;
