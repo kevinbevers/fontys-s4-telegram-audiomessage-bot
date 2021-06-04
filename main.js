@@ -51,11 +51,11 @@ app.get('/get/:variable', async function (req, res) {
   });
 
   app.get('/voicefile', async function (req, res) {
-    const text=`Hey Valterri, it is James.
+    // get text from query
+    const textFromQuery = req.query.tts;
+    // const text=`Hey Valterri, it is James.Fuck you`;
 
-
-    Fuck you`;
-    await synthesizeSpeechXML(text);
+    await synthesizeSpeechXML(textFromQuery);
     //await synthesizeSpeech("This is for all the kids out there that dream of the impossible!");
     
     res.send(`Voice is made and stored in a file`);
