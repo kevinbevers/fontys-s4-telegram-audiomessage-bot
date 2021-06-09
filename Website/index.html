@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Tacotron</title>
+  <title>Tacotron</title>
+  <link rel="stylesheet" href=" style.css" />
 </head>
 <body>
+  <h1>Text to speech</h1>
+  <header>
+    <p>1    Text you want to convert</p>
+  </header>
 
-<h1>Text to speech</h1>
-<p>Make audio sample.</p>
 
-<form action="http://localhost:4001/voicefile" method="get" target="_blank">
-  <label for="fname">Text you want to convert</label>
-  <input type="text" id="texttospeechfield" name="tss"><br><br>
-  <input type="submit" value="Submit">
-</form>
+  <form action="http://localhost:4001/voicefile" method="get" target="_blank">
+    <!-- <label for="fname">Text you want to convert</label> -->
+    <input type="text" id="texttospeechfield" name="tss"><br><br>
+    <input type="submit" value="Submit">
+  </form>
 
 <!--<script type="text/javascript" src="script.js"></script>-->
 </body>

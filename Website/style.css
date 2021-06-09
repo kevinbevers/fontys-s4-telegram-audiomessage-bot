@@ -1,0 +1,32 @@
+body {
+    width: 100%;
+
+}
+
+header {
+    /* background-color: white; */
+    background-color: #ff1e00;
+}
+
+h1 {
+  color: black;
+  margin-left: 10%;
+}
+
+P {
+    margin-left: 10%;
+    color: white;
+    font-size: 40px;
+} 
+
+/* input.text.texttospeechfield{
+    padding: 10%;
+    width: 100%;
+    height: 50%;
+} */
+input[type="text"] { 
+    background-color: gray;
+    padding: 10%;
+    width: 100%;
+    height: 50%; 
+}
