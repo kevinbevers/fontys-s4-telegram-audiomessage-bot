@@ -1,11 +1,19 @@
+:root {
+    --skew-value: 20deg;
+}
+
 body {
     width: 100%;
+    margin: 0;
+    padding: 10;
 
 }
 
 header {
     /* background-color: white; */
     background-color: #ff1e00;
+    margin-right: 50%;
+    transform: skew(var(--skew-value));
 }
 
 h1 {
@@ -17,6 +25,7 @@ P {
     margin-left: 10%;
     color: white;
     font-size: 40px;
+    transform: skew(calc(var(--skew-value) * -1));
 } 
 
 /* input.text.texttospeechfield{
@@ -25,8 +34,17 @@ P {
     height: 50%;
 } */
 input[type="text"] { 
-    background-color: gray;
+    background-color: rgb(186, 186, 186);
+    margin-left: 10%;
+    margin-right: 10%;
     padding: 10%;
     width: 100%;
     height: 50%; 
+}
+input[type="submit"] { 
+    background-color: white;
+    border-color: #ff1e00;
+    color: #ff1e00;
+    width: 150px;
+    margin-left: 80%;
 }
