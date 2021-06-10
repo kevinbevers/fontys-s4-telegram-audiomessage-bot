@@ -1,4 +1,4 @@
-export default function Step2() {
+export default function Step2({nextStepFunc}) {
     return (
       <>
         <div className="content">
@@ -11,7 +11,7 @@ export default function Step2() {
     <form action="http://localhost:4001/voicefile" method="get" target="_blank">
       <textarea id="text" name="tss" rows="4" cols="50" placeholder="Text to be converted." />
         <br/><br/><br/>
-        <input type="button" value="Select your voice" />
+        <input type="button" onClick={nextStepFunc} value="Next step" />
         </form>
         </div>
       </>

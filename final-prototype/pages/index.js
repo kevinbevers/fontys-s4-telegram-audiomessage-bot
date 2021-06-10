@@ -2,13 +2,22 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Step1 from "../src/Step1";
 import Step2 from "../src/Step2";
+import Step3 from "../src/Step3";
+import Step4 from "../src/Step4";
+import Step5 from "../src/Step5";
 
 export default function Home() {
 
   const [stepCount,setStepCount] = useState(1);
   
   const nextStep = () => {
+    if(stepCount == 5)
+    {
+      setStepCount(1);
+    }
+    else {
     setStepCount(stepCount + 1);
+    }
   };
 
   return (
@@ -19,7 +28,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {stepCount == 1 ? <Step1 nextStepFunc={nextStep}/> : <></>}
-      {stepCount == 2 ? <Step2 /> : <></>}
+      {stepCount == 2 ? <Step2 nextStepFunc={nextStep}/> : <></>}
+      {stepCount == 3 ? <Step3 nextStepFunc={nextStep}/> : <></>}
+      {stepCount == 4 ? <Step4 nextStepFunc={nextStep}/> : <></>}
+      {stepCount == 5 ? <Step5 nextStepFunc={nextStep}/> : <></>}
 
     </>
   )
