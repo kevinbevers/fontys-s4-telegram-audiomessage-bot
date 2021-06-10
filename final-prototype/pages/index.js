@@ -18,9 +18,7 @@ export default function Home() {
 
 
   <form action="http://localhost:4001/voicefile" method="get" target="_blank">
-    <textarea id="text" name="tss" rows="4" cols="50">
-      Text to be converted.
-      </textarea>
+    <textarea id="text" name="tss" rows="4" cols="50" placeholder="Text to be converted." />
       <br/><br/><br/>
       <input type="button" value="Select your voice" />
       </form>
