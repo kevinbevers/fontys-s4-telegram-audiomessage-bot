@@ -33,6 +33,7 @@ function xmlToString(filePath) {
 }
 
 async function synthesizeSpeechXML(textToVoice) {
+    return new Promise(function(resolve, reject) {
     const speechConfig = SpeechConfig.fromSubscription(process.env?.SubscriptionKey, process.env?.ServiceRegion);
     const audioConfig = AudioConfig.fromAudioFileOutput(process.env?.PathApiVoiceXml || './audio/stock/apivoiceXML.mp3');
 
@@ -52,14 +53,15 @@ async function synthesizeSpeechXML(textToVoice) {
             const { audioData } = result;
 
             synthesizer.close();
-            const stream = Readable.from(audioData.toString());
-
-            return stream;
+            resolve();
         },
         error => {
             console.log(error);
             synthesizer.close();
+            reject();
         });
+    });
+        
 }
 
 

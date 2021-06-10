@@ -4,7 +4,7 @@ export default function Step5({nextStepFunc}) {
         <div className="content">
         <h1>Text to speech</h1>
         <div className="redbg">
-          <h2>5</h2>
+          <h2>5 Send message</h2>
         </div>
   
   
