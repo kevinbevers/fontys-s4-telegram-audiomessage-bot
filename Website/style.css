@@ -48,7 +48,7 @@ input[type="text"] {
     /* width: 1000px; */
     height: 50%; 
 }
-input[type="Select your voice"] { 
+input[type="button"] { 
     background-color: white;
     border: 1px solid #ff1e00;
     color: #ff1e00;
@@ -60,7 +60,7 @@ input[type="Select your voice"] {
     font-weight: bold;
 }
 
-input[type="Select your voice"]:hover { 
+input[type="button"]:hover { 
     background-color: #ff1e00;
     border: 1px solid #ff1e00;
     color: #ffffff;
@@ -70,6 +70,7 @@ input[type="Select your voice"]:hover {
     font-family: 'Be Vietnam', sans-serif;
     font-size: 40px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 textarea{
