@@ -1,4 +1,6 @@
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@500;600;800&display=swap');
 
 html,
@@ -29,9 +31,11 @@ a {
 }
 
 .content {
-  width: 80%;
+  width: 90%;
   margin: 0;
   padding: 10;
+  margin-left: 0;
+  margin-right: auto;
   
 }
 
@@ -43,15 +47,12 @@ a {
   margin-left: -10px;
 }
 
-h1 {
+.pageTitle {
 color: black;
-margin-left: 10%;
 font-family: 'Be Vietnam', sans-serif;
-font-weight: 800;
-font-size: 60px;
 }
 
-h2 {
+.redTitle {
   margin-left: 10%;
   color: white;
   font-weight: bold;
@@ -78,7 +79,6 @@ input[type="button"] {
   color: #ff1e00;
   width: 417px;
   height: 68px;
-  margin-left: 80%;
   font-family: 'Be Vietnam', sans-serif;
   font-size: 40px;
   font-weight: bold;
@@ -86,14 +86,7 @@ input[type="button"] {
 
 input[type="button"]:hover { 
   background-color: #ff1e00;
-  border: 1px solid #ff1e00;
   color: #ffffff;
-  width: 417px;
-  height: 68px;
-  margin-left: 80%;
-  font-family: 'Be Vietnam', sans-serif;
-  font-size: 40px;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -108,4 +101,13 @@ textarea{
   color: black;
   font-size: 22px;
   border: none;
+}
+
+.TitleLogo {
+  height: 10px;
+}
+
+.VoiceCircle:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(11,11,11,.9); 
 }

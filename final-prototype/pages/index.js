@@ -8,7 +8,7 @@ import Step5 from "../src/Step5";
 
 export default function Home() {
 
-  const [stepCount,setStepCount] = useState(1);
+  const [stepCount,setStepCount] = useState(2);
   
   const nextStep = () => {
     if(stepCount == 5)

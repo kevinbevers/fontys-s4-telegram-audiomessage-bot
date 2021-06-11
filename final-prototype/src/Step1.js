@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
+import PageTitle from "./PageTitle";
+import StepBanner from "./StepBanner";
+
 
 export default function Step1({nextStepFunc}) {
 
@@ -31,16 +34,13 @@ export default function Step1({nextStepFunc}) {
     return (
       <>
         <div className="content">
-        <h1>Text to speech</h1>
-        <div className="redbg">
-          <h2>1 Text to convert</h2>
-        </div>
-  
+        <PageTitle />
+        <StepBanner />
   
     {/* <form action="http://localhost:4001/voicefile" method="get" target="_blank"> */}
       <textarea id="text" name="tts" rows="4" cols="50" placeholder="Text to be converted." value={textState} onChange={textChange} />
         <br/><br/><br/>
-          <input type="button" onClick={sendRequestToApiToGenerateVoiceFile} value="Select a voice >" />
+          <input type="button" className="float-right" onClick={sendRequestToApiToGenerateVoiceFile} value="Select a voice >" />
         {/* </form> */}
         </div>
       </>
