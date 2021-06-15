@@ -3,14 +3,14 @@ import PageTitle from "./PageTitle";
 import StepBanner from "./StepBanner";
 import VoiceSelect from "./VoiceSelect";
 
-export default function Step2({nextStepFunc}) {
+export default function Step2({nextStepFunc, updateVoiceFunc, voice}) {
     return (
       <>
         <div className="content">
         <PageTitle />
         <StepBanner stepNumber={2} stepText={"Select a voice"}/>
 
-        <VoiceSelect />
+        <VoiceSelect updateVoiceFunc={updateVoiceFunc} voice={voice}/>
         <br/><br/><br/>
         <input type="button" className="float-right" onClick={nextStepFunc} value="Next step" />
         </div>

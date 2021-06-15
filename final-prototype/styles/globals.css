@@ -93,8 +93,7 @@ input[type="button"]:hover {
 textarea{
   margin-left: 10%;
   margin-right: 10%;
-  width: 100%;
-  min-width: 100%;
+  min-width: 90%;
   min-height: 200px;
   max-height: 350px;
   background-color: rgb(161,161,161,0.10);

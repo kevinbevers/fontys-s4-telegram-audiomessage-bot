@@ -4,11 +4,12 @@ import PageTitle from "./PageTitle";
 import StepBanner from "./StepBanner";
 
 
-export default function Step1({nextStepFunc}) {
+export default function Step1({nextStepFunc, updateTextFunc, text}) {
 
-    const [textState, setTextState] = useState("");
+    const [textState, setTextState] = useState(text || "");
     const textChange = (e) => {
       setTextState(e.target.value);
+      updateTextFunc(e.target.value);
     }
 
     const sendRequestToApiToGenerateVoiceFile = async() => {
@@ -40,7 +41,7 @@ export default function Step1({nextStepFunc}) {
     {/* <form action="http://localhost:4001/voicefile" method="get" target="_blank"> */}
       <textarea id="text" name="tts" rows="4" cols="50" placeholder="Text to be converted." value={textState} onChange={textChange} />
         <br/><br/><br/>
-          <input type="button" className="float-right" onClick={sendRequestToApiToGenerateVoiceFile} value="Select a voice >" />
+          <input type="button" className="float-right" onClick={nextStepFunc} value="Select a voice >" />
         {/* </form> */}
         </div>
       </>
