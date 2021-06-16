@@ -9,7 +9,7 @@ import Step5 from "../src/Step5";
 export default function Home() {
 
   //Keeping track of the Step the user is on.
-  const [stepCount,setStepCount] = useState(1);
+  const [stepCount,setStepCount] = useState(4);
   const nextStep = () => {
     if(stepCount == 5)
     {
@@ -40,6 +40,12 @@ export default function Home() {
   const updateVoiceFunc = (driver) => {
     setSelectedVoice(driver);
   };
+
+    //Selected Platforms by user.
+    const [selectedPlatforms,setSelectedPlatforms] = useState([]);
+    const updatePlatformsFunc = (pltf) => {
+      setSelectedPlatforms(pltf);
+    };
   
 
 
@@ -54,7 +60,7 @@ export default function Home() {
       {stepCount == 1 ? <Step1 nextStepFunc={nextStep} updateTextFunc={updateTextFunc} text={inputtedText}/> : <></>}
       {stepCount == 2 ? <Step2 nextStepFunc={nextStep} previousStepFunc={previousStep} updateVoiceFunc={updateVoiceFunc} voice={selectedVoice} /> : <></>}
       {stepCount == 3 ? <Step3 nextStepFunc={nextStep} previousStepFunc={previousStep} voice={selectedVoice} text={inputtedText} /> : <></>}
-      {stepCount == 4 ? <Step4 nextStepFunc={nextStep} previousStepFunc={previousStep} /> : <></>}
+      {stepCount == 4 ? <Step4 nextStepFunc={nextStep} previousStepFunc={previousStep} updatePlatformsFunc={updatePlatformsFunc} platforms={selectedPlatforms}/> : <></>}
       {stepCount == 5 ? <Step5 nextStepFunc={nextStep} previousStepFunc={previousStep} /> : <></>}
 
     </>

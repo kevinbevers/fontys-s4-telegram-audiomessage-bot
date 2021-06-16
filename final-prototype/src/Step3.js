@@ -20,7 +20,7 @@ export default function Step3({nextStepFunc, previousStepFunc, voice, text}) {
         </div>
         <div className="">
           <h3 className="text-3xl text-center">Selected voice</h3>
-          <div className={`rounded-full border-red-500 border-4 w-72 mx-auto mt-5`}><img src={`/drivers/${voice}.png`} className="rounded-full" draggable="false"></img></div>
+          <div className={`rounded-full border-red-custom border-4 w-72 mx-auto mt-5`}><img src={`/drivers/${voice}.png`} className="rounded-full" draggable="false"></img></div>
           <h4 className="text-2xl text-center mt-3">{voice}</h4>
           </div>
         <div className="">

@@ -124,3 +124,20 @@ textarea{
   cursor: pointer;
   box-shadow: 0 0 20px rgba(11,11,11,.9); 
 }
+
+.PlatformLogo:hover {
+  cursor: pointer;
+  opacity: 60%;
+}
+
+.text-red-custom {
+  color: #ff1e00;
+}
+
+.border-red-custom {
+  border-color: #ff1e00;
+}
+
+.bg-red-custom {
+  background-color: #ff1e00;
+}
