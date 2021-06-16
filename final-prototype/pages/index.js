@@ -61,7 +61,7 @@ export default function Home() {
       {stepCount == 2 ? <Step2 nextStepFunc={nextStep} previousStepFunc={previousStep} updateVoiceFunc={updateVoiceFunc} voice={selectedVoice} /> : <></>}
       {stepCount == 3 ? <Step3 nextStepFunc={nextStep} previousStepFunc={previousStep} voice={selectedVoice} text={inputtedText} /> : <></>}
       {stepCount == 4 ? <Step4 nextStepFunc={nextStep} previousStepFunc={previousStep} updatePlatformsFunc={updatePlatformsFunc} platforms={selectedPlatforms}/> : <></>}
-      {stepCount == 5 ? <Step5 nextStepFunc={nextStep} previousStepFunc={previousStep} /> : <></>}
+      {stepCount == 5 ? <Step5 nextStepFunc={nextStep} previousStepFunc={previousStep} platforms={selectedPlatforms}/> : <></>}
 
     </>
   )
