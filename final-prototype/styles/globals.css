@@ -39,6 +39,20 @@ a {
   
 }
 
+.innerContent {
+  margin-left: 10%;
+}
+
+.buttons {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+}
+
+.graybg {
+  background-color: rgb(161,161,161,0.10);
+}
+
 .redbg {
   /* background-color: white; */
   background-color: #ff1e00;
@@ -94,8 +108,8 @@ textarea{
   margin-left: 10%;
   margin-right: 10%;
   min-width: 90%;
-  min-height: 200px;
-  max-height: 350px;
+  min-height: 410px;
+  max-height: 410px;
   background-color: rgb(161,161,161,0.10);
   color: black;
   font-size: 22px;

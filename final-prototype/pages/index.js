@@ -19,6 +19,15 @@ export default function Home() {
     setStepCount(stepCount + 1);
     }
   };
+  const previousStep = () => {
+    if(stepCount == 1)
+    {
+        //don't do anything
+    }
+    else {
+    setStepCount(stepCount - 1);
+    }
+  };
 
   //Text input by user.
   const [inputtedText,setInputtedText] = useState("");
@@ -43,10 +52,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {stepCount == 1 ? <Step1 nextStepFunc={nextStep} updateTextFunc={updateTextFunc} text={inputtedText}/> : <></>}
-      {stepCount == 2 ? <Step2 nextStepFunc={nextStep} updateVoiceFunc={updateVoiceFunc} voice={selectedVoice} /> : <></>}
-      {stepCount == 3 ? <Step3 nextStepFunc={nextStep}/> : <></>}
-      {stepCount == 4 ? <Step4 nextStepFunc={nextStep}/> : <></>}
-      {stepCount == 5 ? <Step5 nextStepFunc={nextStep}/> : <></>}
+      {stepCount == 2 ? <Step2 nextStepFunc={nextStep} previousStepFunc={previousStep} updateVoiceFunc={updateVoiceFunc} voice={selectedVoice} /> : <></>}
+      {stepCount == 3 ? <Step3 nextStepFunc={nextStep} previousStepFunc={previousStep} voice={selectedVoice} text={inputtedText} /> : <></>}
+      {stepCount == 4 ? <Step4 nextStepFunc={nextStep} previousStepFunc={previousStep} /> : <></>}
+      {stepCount == 5 ? <Step5 nextStepFunc={nextStep} previousStepFunc={previousStep} /> : <></>}
 
     </>
   )
