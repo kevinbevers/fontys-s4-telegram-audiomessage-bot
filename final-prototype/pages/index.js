@@ -9,7 +9,7 @@ import Step5 from "../src/Step5";
 export default function Home() {
 
   //Keeping track of the Step the user is on.
-  const [stepCount,setStepCount] = useState(4);
+  const [stepCount,setStepCount] = useState(1);
   const nextStep = () => {
     if(stepCount == 5)
     {
