@@ -2,7 +2,7 @@ import { useState } from "react";
 import PageTitle from "./PageTitle";
 import StepBanner from "./StepBanner";
 
-export default function Step3({nextStepFunc, previousStepFunc, voice, text}) {
+export default function Step3({nextStepFunc, previousStepFunc, voice, text, fileName}) {
     return (
       <>
         <div className="content">
@@ -26,7 +26,9 @@ export default function Step3({nextStepFunc, previousStepFunc, voice, text}) {
         <div className="">
           <h3 className="text-3xl text-center">Generated audo file</h3>
           <div className="flex h-80">
-          <audio className="mx-auto my-auto" controls></audio>
+          <audio className="mx-auto my-auto" controls>
+          <source src={`http://localhost:4001/${fileName}?cb="${new Date().getTime()}`} type="audio/mpeg" />
+          </audio>
           </div>
           </div>
         </div>

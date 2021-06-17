@@ -46,11 +46,17 @@ export default function Home() {
     setSelectedVoice(driver);
   };
 
-    //Selected Platforms by user.
-    const [selectedPlatforms,setSelectedPlatforms] = useState([]);
-    const updatePlatformsFunc = (pltf) => {
-      setSelectedPlatforms(pltf);
-    };
+  //Selected Platforms by user.
+  const [selectedPlatforms,setSelectedPlatforms] = useState([]);
+  const updatePlatformsFunc = (pltf) => {
+    setSelectedPlatforms(pltf);
+  };
+
+  //fileName
+  const [fileName,setFileName] = useState("");
+  const updateFileNameFunc = (fn) => {
+    setFileName(fn);
+  };
   
 
 
@@ -63,8 +69,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {stepCount == 1 ? <Step1 nextStepFunc={nextStep} updateTextFunc={updateTextFunc} text={inputtedText}/> : <></>}
-      {stepCount == 2 ? <Step2 nextStepFunc={nextStep} previousStepFunc={previousStep} updateVoiceFunc={updateVoiceFunc} voice={selectedVoice} /> : <></>}
-      {stepCount == 3 ? <Step3 nextStepFunc={nextStep} previousStepFunc={previousStep} voice={selectedVoice} text={inputtedText} /> : <></>}
+      {stepCount == 2 ? <Step2 nextStepFunc={nextStep} previousStepFunc={previousStep} updateVoiceFunc={updateVoiceFunc} voice={selectedVoice} text={inputtedText} updateFileNameFunc={updateFileNameFunc} /> : <></>}
+      {stepCount == 3 ? <Step3 nextStepFunc={nextStep} previousStepFunc={previousStep} voice={selectedVoice} text={inputtedText} fileName={fileName} /> : <></>}
       {stepCount == 4 ? <Step4 nextStepFunc={nextStep} previousStepFunc={previousStep} updatePlatformsFunc={updatePlatformsFunc} platforms={selectedPlatforms}/> : <></>}
       {stepCount == 5 ? <Step5 nextStepFunc={nextStep} previousStepFunc={previousStep} platforms={selectedPlatforms}/> : <></>}
 

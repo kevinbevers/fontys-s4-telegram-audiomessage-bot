@@ -50,7 +50,7 @@ import fs from 'fs';
           resolve();
         })
       })
-      .mergeToFile('./audio/speechWithCoolBoardRadioEffect.mp3', './audio/temp');
+      .mergeToFile('./audio/preview.mp3', './audio/temp');
     });
     });
   };

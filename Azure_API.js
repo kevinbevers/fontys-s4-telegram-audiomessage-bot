@@ -32,19 +32,18 @@ function xmlToString(filePath) {
     return xml;
 }
 
-async function synthesizeSpeechXML(textToVoice) {
+async function synthesizeSpeechXML(textToVoice,voiceName) {
     return new Promise(function(resolve, reject) {
     const speechConfig = SpeechConfig.fromSubscription(process.env?.SubscriptionKey, process.env?.ServiceRegion);
-    const audioConfig = AudioConfig.fromAudioFileOutput(process.env?.PathApiVoiceXml || './audio/stock/apivoiceXML.mp3');
+    const audioConfig = AudioConfig.fromAudioFileOutput(process.env?.PathApiVoiceXml || './audio/apivoice.mp3');
 
-    const ssml='<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">    <voice name="en-GB-RyanNeural">    '+textToVoice+'    </voice>  </speak>';
+    const ssml=`<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">    <voice name="${voiceName == "default_male" ? "en-GB-RyanNeural" : voiceName == "default_female" ? "en-US-JennyNeural" : "en-US-GuyNeural"}">${textToVoice}</voice>  </speak>`;
     //const ssml = xmlToString("ssml.xml");
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     
     synthesizer.speakSsmlAsync(
         ssml,
         result => {
-            console.log(ssml);
             if (result.errorDetails) {
                 console.error(result.errorDetails);
             } else {
