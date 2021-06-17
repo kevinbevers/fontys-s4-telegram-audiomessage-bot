@@ -1,9 +1,26 @@
 import { useState } from "react";
+import axios from 'axios';
 import PageTitle from "./PageTitle";
 import StepBanner from "./StepBanner";
 import PlatformChoice from "./PlatformChoice";
 
-export default function Step5({nextStepFunc, previousStepFunc, updatePlatformsFunc ,platforms}) {
+export default function Step5({nextStepFunc, previousStepFunc, updatePlatformsFunc ,platforms, fileName}) {
+
+  const nextStepCheck = async() => {
+
+      await axios.post("http://localhost:4001/publishvoicetosocial", {filename: fileName, platforms: platforms}).then(async(res) => {
+        if(res?.status == 200)
+        {
+          nextStepFunc();
+        }
+        else {
+          //show the message
+          alert("Oh no something went wrong!");
+        }
+      }).catch(err => {console.log(err);});
+  };
+
+
     return (
       <>
         <div className="content">
@@ -26,7 +43,7 @@ export default function Step5({nextStepFunc, previousStepFunc, updatePlatformsFu
         
         <div className="absolute inset-x-0 bottom-0 h-16 buttons">
           <input type="button" className="float-left" onClick={previousStepFunc} value="< Previous step" />
-          <input type="button" className="float-right" onClick={nextStepFunc} value="Next step >" />
+          <input type="button" className="float-right" onClick={nextStepCheck} value="Share on Socials" />
         </div>
         </div>
         </div>

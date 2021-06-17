@@ -1,4 +1,3 @@
-import { synthesizeSpeech, synthesizeSpeechXML } from './Azure_API.js'
 //express for api
 import express from 'express';
 import cors from 'cors';
@@ -15,6 +14,7 @@ import axios from 'axios'
 //TelegramBot
 import TeleBot from 'telebot'
 import audiogeneration from './utils/audiogeneration.js';
+import { synthesizeSpeech, synthesizeSpeechXML } from './Azure_API.js';
 
   app.get('/sendvoice', async function (req, res) {
 
