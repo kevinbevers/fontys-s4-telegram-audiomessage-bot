@@ -13,6 +13,11 @@ export default function Home() {
   const nextStep = () => {
     if(stepCount == 5)
     {
+      //reset data
+      setInputtedText("");
+      setSelectedVoice("");
+      setSelectedPlatforms([]);
+      //back to first step
       setStepCount(1);
     }
     else {

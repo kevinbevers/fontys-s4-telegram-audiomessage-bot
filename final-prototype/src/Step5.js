@@ -12,17 +12,16 @@ export default function Step5({nextStepFunc, previousStepFunc, updatePlatformsFu
   
   
         <div className="innerContent">
-        <div className="grid grid-cols-2  gap-2">
-        <div className="bg-pink-500">
+        <div className="grid grid-cols-2 gap-2">
+        <div className="">
           <h3 className="text-3xl text-center">Audio sample</h3>
           <div className="flex h-80">
             <audio className="mx-auto my-auto" controls></audio>
           </div>
         </div>
-        <div className=" bg-pink-500">
-          <h3 className="text-3xl text-center">Selected Platform</h3>
-          <PlatformSelect updatePlatformsFunc={updatePlatformsFunc}/>
-          <h4 className="text-2xl text-center">{platforms}</h4>
+        <div className="">
+          <h3 className="text-3xl text-center">Selected Platform{platforms?.length > 1 ? "s" : ""}</h3>
+          <div className="h-80 flex"><PlatformChoice platforms={platforms}/></div>
         </div>
         
         <div className="absolute inset-x-0 bottom-0 h-16 buttons">
