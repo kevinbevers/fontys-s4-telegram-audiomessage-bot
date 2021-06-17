@@ -74,26 +74,28 @@ font-family: 'Be Vietnam', sans-serif;
   transform: skew(calc(var(--skew-value) * -1));
 } 
 
-/* input.text.texttospeechfield{
-  padding: 10%;
-  width: 100%;
-  height: 50%;
-} */
-input[type="button"] { 
+.redButton {
   background-color: white;
   border: 1px solid #ff1e00;
   color: #ff1e00;
   width: 417px;
-  height: 68px;
   font-family: 'Be Vietnam', sans-serif;
   font-size: 40px;
   font-weight: bold;
 }
 
-input[type="button"]:hover { 
+.redButton:hover {
   background-color: #ff1e00;
   color: #ffffff;
   cursor: pointer;
+}
+
+.buttonTopPadding {
+  padding-top: 10px;
+}
+
+.textBottomPadding {
+  padding-bottom: 10px;
 }
 
 textarea{

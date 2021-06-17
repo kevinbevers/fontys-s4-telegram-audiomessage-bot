@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageTitle from "./PageTitle";
 import StepBanner from "./StepBanner";
+import {FaStepBackward, FaStepForward} from "react-icons/fa";
 
 export default function Step3({nextStepFunc, previousStepFunc, voice, text, fileName}) {
     return (
@@ -33,8 +34,8 @@ export default function Step3({nextStepFunc, previousStepFunc, voice, text, file
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-0 h-16 buttons">
-          <input type="button" className="float-left" onClick={previousStepFunc} value="< Previous step" />
-          <input type="button" className="float-right" onClick={nextStepFunc} value="Next step >" />
+        <button className="float-left redButton focus:outline-none" onClick={previousStepFunc}><span className="flex justify-center content-center buttonTopPadding"><FaStepBackward className="my-auto ml-auto mr-2"/><h3 className="my-auto mr-auto textBottomPadding">Previous Step</h3></span></button>
+          <button className="float-right redButton focus:outline-none" onClick={nextStepFunc}><span className="flex justify-center content-center buttonTopPadding"><h3 className="my-auto ml-auto mr-2 textBottomPadding">Next Step</h3><FaStepForward className="my-auto mr-auto"/></span></button>
         </div>
         </div>
         </div>

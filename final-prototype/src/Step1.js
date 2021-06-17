@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import PageTitle from "./PageTitle";
 import StepBanner from "./StepBanner";
-
+import {FaStepBackward, FaStepForward} from "react-icons/fa";
 
 export default function Step1({nextStepFunc, updateTextFunc, text,title, updateTitleFunc}) {
 
@@ -39,7 +39,7 @@ export default function Step1({nextStepFunc, updateTextFunc, text,title, updateT
     <input type={"text"} className="inputStyling mb-4" placeholder={"Title (used as description on socials)"} value={titleState} onChange={titleChange} />
       <textarea id="text" className="h-80" name="tts" rows="4" cols="50" placeholder="Text to be converted." value={textState} onChange={textChange} />
       <div className="absolute inset-x-0 bottom-0 h-16 buttons">
-          <input type="button" className="float-right" onClick={nextStepCheck} value="Next step >" />
+          <button className="float-right redButton focus:outline-none" onClick={nextStepCheck}><span className="flex justify-center content-center buttonTopPadding"><h3 className="my-auto ml-auto mr-2 textBottomPadding">Next Step</h3><FaStepForward className="my-auto mr-auto"/></span></button>
         </div>
         {/* </form> */}
         </div>
