@@ -4,11 +4,11 @@ import PageTitle from "./PageTitle";
 import StepBanner from "./StepBanner";
 import PlatformChoice from "./PlatformChoice";
 
-export default function Step5({nextStepFunc, previousStepFunc, updatePlatformsFunc ,platforms, fileName}) {
+export default function Step5({nextStepFunc, previousStepFunc, updatePlatformsFunc ,platforms, fileName, title}) {
 
   const nextStepCheck = async() => {
 
-      await axios.post("http://localhost:4001/publishvoicetosocial", {filename: fileName, platforms: platforms}).then(async(res) => {
+      await axios.post("http://localhost:4001/publishvoicetosocial", {filename: fileName, platforms: platforms, msgdesc: title}).then(async(res) => {
         if(res?.status == 200)
         {
           nextStepFunc();
@@ -33,7 +33,9 @@ export default function Step5({nextStepFunc, previousStepFunc, updatePlatformsFu
         <div className="">
           <h3 className="text-3xl text-center">Audio sample</h3>
           <div className="flex h-80">
-            <audio className="mx-auto my-auto" controls></audio>
+            <audio className="mx-auto my-auto" controls>
+            <source src={`http://localhost:4001/${fileName}?cb="${new Date().getTime()}`} type="audio/mpeg" />
+            </audio>
           </div>
         </div>
         <div className="">

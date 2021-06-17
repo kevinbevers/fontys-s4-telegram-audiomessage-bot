@@ -88,13 +88,14 @@ import { synthesizeSpeech, synthesizeSpeechXML } from './Azure_API.js';
   app.post('/publishvoicetosocial', async function (req, res) {
     //array of platform names
       const fileName = req.body.filename?.toString();
+      const msgDesc = req.body.msgdesc?.toString();
       const platforms = req.body.platforms;
 
       if(platforms?.includes("Telegram"))
       {
         const bot = new TeleBot(process.env?.TelegramBotToken || "");
         //to get the channelID https://gist.github.com/mraaroncruz/e76d19f7d61d59419002db54030ebe35
-        await bot.sendVoice(process.env?.TelegramChannelID || "", `./audio/${fileName}`, {caption: "News Flash⚡️ By RacingNews365 Tacotron🤖🌮."});
+        await bot.sendVoice(process.env?.TelegramChannelID || "", `./audio/${fileName}`, {caption: msgDesc != "" ? msgDesc : "News Flash⚡️ By RacingNews365 Tacotron🤖🌮."});
       }
 
       if(platforms?.includes("Twitter"))
