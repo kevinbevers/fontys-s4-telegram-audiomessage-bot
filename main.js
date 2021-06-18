@@ -70,7 +70,7 @@ import { synthesizeSpeech, synthesizeSpeechXML } from './Azure_API.js';
       }
       else {
         await synthesizeSpeechXML(textFromQuery,voiceName).then(async() => {
-          await audiogeneration.generateCoolBoardRadioEffect(`./audio/apivoice.mp3`).then(() => {
+          await audiogeneration.generateCoolBoardRadioEffect(process.env?.PathApiVoiceXml || `./audio/apivoice.mp3`).then(() => {
               res.send(`preview.mp3`);
           }).catch((err) => {
             console.log(err);

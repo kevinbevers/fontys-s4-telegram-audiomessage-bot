@@ -78,9 +78,9 @@ font-family: 'Be Vietnam', sans-serif;
   background-color: white;
   border: 1px solid #ff1e00;
   color: #ff1e00;
-  width: 417px;
+  width: 300px;
   font-family: 'Be Vietnam', sans-serif;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -91,11 +91,11 @@ font-family: 'Be Vietnam', sans-serif;
 }
 
 .buttonTopPadding {
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 .textBottomPadding {
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 textarea{
@@ -108,6 +108,7 @@ textarea{
   color: black;
   font-size: 22px;
   border: none;
+  resize: none;
 }
 
 .inputStyling {
