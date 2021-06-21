@@ -63,6 +63,15 @@ import { synthesizeSpeech, synthesizeSpeechXML } from './Azure_API.js';
       // get text from query
       const textFromQuery = req.query.tts?.toString();
       const voiceName = req.query.voice?.toString();
+      const notiSound = req.query.notisound.toLocaleLowerCase() == 'true' ? true : false;
+      const distortEffect = req.query.distortion.toLocaleLowerCase() == 'true' ? true : false;;
+      const backgroundVolume = req.query.backgroundvol / 100;
+      const backgroundTiming = req.query.backgroundtiming;
+      const background = req.query.background.toString();
+
+      console.log("noti: " + notiSound);
+      console.log("vol: " + backgroundVolume);
+      console.log(background);
 
       if(voiceName == "Vettel" && textFromQuery == "Sebastian Vettel congratulates Max Verstappen on his Monaco Grand Prix Victory.")
       {
@@ -70,13 +79,26 @@ import { synthesizeSpeech, synthesizeSpeechXML } from './Azure_API.js';
       }
       else {
         await synthesizeSpeechXML(textFromQuery,voiceName).then(async() => {
-          await audiogeneration.generateCoolBoardRadioEffect(process.env?.PathApiVoiceXml || `./audio/apivoice.mp3`).then(() => {
+          if(distortEffect)
+          {
+            await audiogeneration.generateCoolBoardRadioEffectWithDistortion(process.env?.PathApiVoiceXml || `./audio/apivoice.mp3`, notiSound, background, backgroundVolume).then(() => {
+                res.send(`preview.mp3`);
+            }).catch((err) => {
+              console.log(err);
+              res.status(500);
+              res.send("Something went wrong trying to modify the audio file.")
+            });
+          }
+          else {
+            await audiogeneration.generateCoolBoardRadioEffect(process.env?.PathApiVoiceXml || `./audio/apivoice.mp3`, notiSound, background, backgroundVolume).then(() => {
               res.send(`preview.mp3`);
-          }).catch((err) => {
-            console.log(err);
-            res.status(500);
-            res.send("Something went wrong trying to modify the audio file.")
-          });
+            }).catch((err) => {
+              console.log(err);
+              res.status(500);
+              res.send("Something went wrong trying to modify the audio file.")
+            });
+          }
+
         }).catch((err) => {
           console.log(err);
           res.status(500);

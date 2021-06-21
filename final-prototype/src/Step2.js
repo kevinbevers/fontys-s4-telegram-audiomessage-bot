@@ -10,17 +10,7 @@ export default function Step2({nextStepFunc, previousStepFunc, updateVoiceFunc, 
   const nextStepCheck = async() => {
     if(voice != "")
     {
-      await axios.get("http://localhost:4001/createvoicefile", { params: {tts: text?.trim().toString(), voice: voice?.toString() } }).then(async(res) => {
-        if(res?.status == 200)
-        {
-          updateFileNameFunc(res?.data);
-          nextStepFunc();
-        }
-        else {
-          //show the message
-          alert(res?.data);
-        }
-      }).catch(err => {console.log(err);});
+      nextStepFunc();
     }
     else {
       // Alert here that text isn't filled in. Make it pretty with modal or something

@@ -148,3 +148,182 @@ textarea{
 .bg-red-custom {
   background-color: #ff1e00;
 }
+
+/* Custom HTML objects */
+
+.radio-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+
+.radio-item input[type='radio'] {
+  display: none;
+}
+
+.radio-item label {
+  color: #666;
+  font-weight: normal;
+}
+
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid #ff1e00;
+  background-color: transparent;
+}
+
+.radio-item input[type=radio]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  content: " ";
+  display: block;
+  background: #ff1e00;
+}
+
+.switchLabel {
+  color: #666;
+  font-weight: normal;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ff1e00;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ff1e00;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+input[type="range"] { 
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0; /* iOS */
+}
+
+::-webkit-slider-runnable-track {
+  background: #ddd;
+}
+
+/*
+* 1. Set to 0 width and remove border for a slider without a thumb
+*/
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 8px; /* 1 */
+  height: 20px;
+  background: #fff;
+  box-shadow: -100vw 0 0 100vw red;
+  border: 1px solid #999; /* 1 */
+}
+
+::-moz-range-track {
+  height: 20px;
+  background: #ddd;
+}
+
+::-moz-range-thumb {
+  background: #fff;
+  height: 20px;
+  width: 9px;
+  border: 1px solid #999;
+  border-radius: 0 !important;
+  box-shadow: -100vw 0 0 100vw red;
+  box-sizing: border-box;
+}
+
+::-ms-fill-lower { 
+  background: red;
+}
+
+::-ms-thumb { 
+  background: #fff;
+  border: 2px solid #999;
+  height: 20px;
+  width: 8px;
+  box-sizing: border-box;
+}
+
+::-ms-ticks-after { 
+  display: none; 
+}
+
+::-ms-ticks-before { 
+  display: none; 
+}
+
+::-ms-track { 
+  background: #ddd;
+  color: transparent;
+  height: 40px;
+  border: none;
+}
+
+::-ms-tooltip { 
+  display: none;
+}
+
+.switchPaddingText {
+  padding-bottom: 1px;
+}

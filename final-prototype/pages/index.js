@@ -5,13 +5,14 @@ import Step2 from "../src/Step2";
 import Step3 from "../src/Step3";
 import Step4 from "../src/Step4";
 import Step5 from "../src/Step5";
+import Step6 from "../src/Step6";
 
 export default function Home() {
 
   //Keeping track of the Step the user is on.
   const [stepCount,setStepCount] = useState(1);
   const nextStep = () => {
-    if(stepCount == 5)
+    if(stepCount == 6)
     {
       //reset data
       setInputtedText("");
@@ -48,6 +49,36 @@ export default function Home() {
     setInputtedText(txt);
   };
 
+  //backgroundVolume input by user.
+  const [backgroundVolume,setBackgroundVolume] = useState(15);
+  const updateBackgroundVolume = (vol) => {
+    setBackgroundVolume(vol);
+  };
+
+  //backgroundTiming input by user.
+  const [backgroundTiming,setBackgroundTiming] = useState("whole");
+  const updateBackgroundTiming = (val) => {
+    setBackgroundTiming(val);
+  };
+
+  //notiSoundToggle input by user.
+  const [notiSound, setNotiSound] = useState(true);
+  const updateNotiSound = (val) => {
+    setNotiSound(val);
+  };
+
+  //distortionToggle input by user.
+  const [distortion, setDistortion] = useState(false);
+  const updateDistortion = (val) => {
+    setDistortion(val);
+  };
+
+  //distortionToggle input by user.
+  const [backgroundType, setBackgroundType] = useState("RB16BengineOnboard.mp3");
+  const updateBackgroundType = (val) => {
+    setBackgroundType(val);
+  };
+
   //Selected Voice by user.
   const [selectedVoice,setSelectedVoice] = useState("");
   const updateVoiceFunc = (driver) => {
@@ -78,9 +109,10 @@ export default function Home() {
       </Head>
       {stepCount == 1 ? <Step1 nextStepFunc={nextStep} updateTextFunc={updateTextFunc} text={inputtedText} title={inputtedTitle} updateTitleFunc={updateTitleFunc} /> : <></>}
       {stepCount == 2 ? <Step2 nextStepFunc={nextStep} previousStepFunc={previousStep} updateVoiceFunc={updateVoiceFunc} voice={selectedVoice} text={inputtedText} updateFileNameFunc={updateFileNameFunc} /> : <></>}
-      {stepCount == 3 ? <Step3 nextStepFunc={nextStep} previousStepFunc={previousStep} voice={selectedVoice} text={inputtedText} fileName={fileName} /> : <></>}
-      {stepCount == 4 ? <Step4 nextStepFunc={nextStep} previousStepFunc={previousStep} updatePlatformsFunc={updatePlatformsFunc} platforms={selectedPlatforms}/> : <></>}
-      {stepCount == 5 ? <Step5 nextStepFunc={nextStep} previousStepFunc={previousStep} platforms={selectedPlatforms} fileName={fileName} title={inputtedTitle} /> : <></>}
+      {stepCount == 3 ? <Step3 nextStepFunc={nextStep} previousStepFunc={previousStep} updateBackgroundVolume={updateBackgroundVolume} backgroundVolume={backgroundVolume} voice={selectedVoice} text={inputtedText} updateFileNameFunc={updateFileNameFunc} updateBackgroundTiming={updateBackgroundTiming} backgroundTiming={backgroundTiming} updateNotiSound={updateNotiSound} notiSound={notiSound} updateDistortion={updateDistortion} distortion={distortion} updateBackgroundType={updateBackgroundType} backgroundType={backgroundType} /> : <></>}
+      {stepCount == 4 ? <Step4 nextStepFunc={nextStep} previousStepFunc={previousStep} voice={selectedVoice} text={inputtedText} fileName={fileName} /> : <></>}
+      {stepCount == 5 ? <Step5 nextStepFunc={nextStep} previousStepFunc={previousStep} updatePlatformsFunc={updatePlatformsFunc} platforms={selectedPlatforms}/> : <></>}
+      {stepCount == 6 ? <Step6 nextStepFunc={nextStep} previousStepFunc={previousStep} platforms={selectedPlatforms} fileName={fileName} title={inputtedTitle} /> : <></>}
 
     </>
   )
