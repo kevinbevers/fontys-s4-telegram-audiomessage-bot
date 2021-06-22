@@ -20,6 +20,11 @@ export default function Home() {
       setSelectedPlatforms([]);
       setFileName("");
       setInputtedTitle("");
+      setNotiSound(true);
+      setDistortion(false);
+      setBackgroundVolume(15);
+      setBackgroundType("RB16BengineOnboard.mp3");
+      setBackgroundTiming("whole");
       //back to first step
       setStepCount(1);
     }
